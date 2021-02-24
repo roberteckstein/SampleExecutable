@@ -6,6 +6,8 @@ import java.awt.event.*;
 
 public class TextEditor extends JFrame {
 
+    //   This is a comment
+
     JFrame frame;
     JMenuBar menuBar;
     JTextArea textArea;
