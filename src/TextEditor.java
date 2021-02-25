@@ -1,7 +1,8 @@
 
-import menuitems.NewProjectMenuItem;
+import menuitems.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class TextEditor extends JFrame {
@@ -9,13 +10,56 @@ public class TextEditor extends JFrame {
     JFrame frame;
     JMenuBar menuBar;
     JTextArea textArea;
+    JToolBar toolBar;
+    JButton newButton, openButton, saveButton, quitButton, cutButton, copyButton, pasteButton, deleteButton;
+    NewProjectMenuItem newProjectMenuItem;
+    OpenProjectMenuItem openProjectMenuItem;
+    SaveProjectMenuItem saveProjectMenuItem;
+    QuitMenuItem quitMenuItem;
+    CutMenuItem cutMenuItem;
+    CopyMenuItem copyMenuItem;
+    PasteMenuItem pasteMenuItem;
+    DeleteMenuItem deleteMenuItem;
+
 
     public TextEditor() {
 
         super("Sample Application");
         setJMenuBar(createMenuBar());
 
+        toolBar = new JToolBar();
         textArea = new JTextArea();
+
+        newButton = new JButton("New");
+        newButton.addActionListener(newProjectMenuItem);
+        toolBar.add(newButton);
+        openButton = new JButton("Open");
+        openButton.addActionListener(openProjectMenuItem);
+        toolBar.add(openButton);
+        saveButton = new JButton("Save");
+        saveButton.addActionListener(saveProjectMenuItem);
+        toolBar.add(saveButton);
+        quitButton = new JButton("Quit");
+        quitButton.addActionListener(quitMenuItem);
+        toolBar.add(quitButton);
+        toolBar.addSeparator();
+        cutButton = new JButton("Cut");
+        cutButton.addActionListener(cutMenuItem);
+        toolBar.add(cutButton);
+        copyButton = new JButton("Copy");
+        copyButton.addActionListener(copyMenuItem);
+        toolBar.add(copyButton);
+        pasteButton = new JButton("Paste");
+        pasteButton.addActionListener(pasteMenuItem);
+        toolBar.add(pasteButton);
+        deleteButton = new JButton("Delete");
+        deleteButton.addActionListener(deleteMenuItem);
+        toolBar.add(deleteButton);
+
+        JPanel p = new JPanel();
+        p.setLayout(new BorderLayout());
+        p.add(toolBar, BorderLayout.NORTH);
+        p.add(textArea, BorderLayout.CENTER);
         setContentPane(textArea);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,8 +90,6 @@ public class TextEditor extends JFrame {
 
         //  To be implemented
 
-        /*
-
         // Brian
         OpenProjectMenuItem openProjectMenuItem = new OpenProjectMenuItem();
         menu.add(openProjectMenuItem);
@@ -61,7 +103,6 @@ public class TextEditor extends JFrame {
         //  Kasen BG
         QuitMenuItem quitMenuItem = new QuitMenuItem();
         menu.add(quitMenuItem);
-        */
 
         menu = new JMenu("Edit");
         menu.setMnemonic(KeyEvent.VK_E);
@@ -69,7 +110,6 @@ public class TextEditor extends JFrame {
                 "Edit Menu");
         menuBar.add(menu);
 
-        /*
 
         //  Sandy
         CutMenuItem cutMenuItem = new CutMenuItem();
@@ -86,7 +126,6 @@ public class TextEditor extends JFrame {
         //  Andrew
         DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
         menu.add(deleteMenuItem);
-        */
 
         return menuBar;
 
