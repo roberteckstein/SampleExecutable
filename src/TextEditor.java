@@ -1,8 +1,7 @@
 
 // did this work
 
-import menuitems.NewProjectMenuItem;
-
+import menuitems.*;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -73,24 +72,23 @@ public class TextEditor extends JFrame {
                 "Edit Menu");
         menuBar.add(menu);
 
-        /*
+
 
         //  Sandy
-        CutMenuItem cutMenuItem = new CutMenuItem();
-        menu.add(cutMenuItem);
+        // CutMenuItem cutMenuItem = new CutMenuItem();
+        // menu.add(cutMenuItem);
 
         //  Ryan
         CopyMenuItem copyMenuItem = new CopyMenuItem();
         menu.add(copyMenuItem);
 
         //  Robin
-        PasteMenuItem pasteMenuItem = new PasteMenuItem();
-        menu.add(pasteMenuItem);
+        // PasteMenuItem pasteMenuItem = new PasteMenuItem();
+        // menu.add(pasteMenuItem);
 
         //  Andrew
-        DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
-        menu.add(deleteMenuItem);
-        */
+        // DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
+        // menu.add(deleteMenuItem);
 
         return menuBar;
 
