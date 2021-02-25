@@ -12,6 +12,8 @@ public class TextEditor extends JFrame {
     JMenuBar menuBar;
     JTextArea textArea;
 
+    // Sandy testing commit.
+
     public TextEditor() {
 
         super("Sample Application");
@@ -30,6 +32,8 @@ public class TextEditor extends JFrame {
         JMenuBar menuBar;
         JMenu menu;
 
+        // Hayden will add the Tool Bar
+
         //Create the menu bar.
         menuBar = new JMenuBar();
 
@@ -40,20 +44,25 @@ public class TextEditor extends JFrame {
         menuBar.add(menu);
 
 
+        //  Chris
         NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem();
         menu.add(newProjectMenuItem);
 
         //  To be implemented
 
         /*
+
+        // Brian
         OpenProjectMenuItem openProjectMenuItem = new OpenProjectMenuItem();
         menu.add(openProjectMenuItem);
 
+        // Joshua H
         SaveProjectMenuItem saveProjectMenuItem = new SaveProjectMenuItem();
         menu.add(saveProjectMenuItem);
 
         menu.addSeparator();
 
+        //  Kasen BG
         QuitMenuItem quitMenuItem = new QuitMenuItem();
         menu.add(quitMenuItem);
         */
@@ -65,15 +74,20 @@ public class TextEditor extends JFrame {
         menuBar.add(menu);
 
         /*
+
+        //  Sandy
         CutMenuItem cutMenuItem = new CutMenuItem();
         menu.add(cutMenuItem);
 
+        //  Ryan
         CopyMenuItem copyMenuItem = new CopyMenuItem();
         menu.add(copyMenuItem);
 
+        //  Robin
         PasteMenuItem pasteMenuItem = new PasteMenuItem();
         menu.add(pasteMenuItem);
 
+        //  Andrew
         DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
         menu.add(deleteMenuItem);
         */
