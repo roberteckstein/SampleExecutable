@@ -9,7 +9,7 @@ public class TextEditor extends JFrame {
 
     JFrame frame;
     JMenuBar menuBar;
-    JTextArea textArea;
+    JTextArea textArea = new JTextArea();
     JToolBar toolBar;
     JButton newButton, openButton, saveButton, quitButton, cutButton, copyButton, pasteButton, deleteButton;
     NewProjectMenuItem newProjectMenuItem;
@@ -28,7 +28,6 @@ public class TextEditor extends JFrame {
         setJMenuBar(createMenuBar());
 
         toolBar = new JToolBar();
-        textArea = new JTextArea();
 
         newButton = new JButton("New");
         newButton.addActionListener(newProjectMenuItem);
@@ -112,7 +111,7 @@ public class TextEditor extends JFrame {
 
 
         //  Sandy
-        CutMenuItem cutMenuItem = new CutMenuItem();
+        CutMenuItem cutMenuItem = new CutMenuItem(this.textArea);
         menu.add(cutMenuItem);
 
         //  Ryan

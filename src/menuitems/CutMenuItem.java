@@ -1,23 +1,37 @@
 package menuitems;
 
 import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 public class CutMenuItem extends JMenuItem implements ActionListener {
 
-    public CutMenuItem() {
+    JTextArea t;
 
+    public CutMenuItem(JTextArea k) {
         super("Cut", new ImageIcon("images/cut.png"));
-        setMnemonic(KeyEvent.VK_P);
-        setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        getAccessibleContext().setAccessibleDescription("Cut");
+        setMnemonic(KeyEvent.VK_X);
+        setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
+        getAccessibleContext().setAccessibleDescription("Cut Text");
         addActionListener(this);
+        t = k;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("New Action is performed");
+
+        if (t.getSelectedText() == null){
+            JOptionPane.showMessageDialog(null, "No Text Selected", "Alert",
+                    JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("Nothing selected");
+
+        }else{
+
+            t.cut();
+            System.out.println("Cut Action is performed");
+
+        }
     }
 }
