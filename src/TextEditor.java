@@ -9,7 +9,7 @@ public class TextEditor extends JFrame {
 
     JFrame frame;
     JMenuBar menuBar;
-    JTextArea textArea;
+    JTextArea textArea = new JTextArea();
 
     // Sandy testing commit.
 
@@ -18,7 +18,7 @@ public class TextEditor extends JFrame {
         super("Sample Application");
         setJMenuBar(createMenuBar());
 
-        textArea = new JTextArea();
+      
         setContentPane(textArea);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,8 +75,8 @@ public class TextEditor extends JFrame {
 
 
         //  Sandy
-        // CutMenuItem cutMenuItem = new CutMenuItem();
-        // menu.add(cutMenuItem);
+         CutMenuItem cutMenuItem = new CutMenuItem(textArea);
+         menu.add(cutMenuItem);
 
         //  Ryan
         CopyMenuItem copyMenuItem = new CopyMenuItem();
