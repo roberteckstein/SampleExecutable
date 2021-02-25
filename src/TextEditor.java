@@ -2,7 +2,9 @@
 import menuitems.NewProjectMenuItem;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 
 public class TextEditor extends JFrame {
 
@@ -31,6 +33,7 @@ public class TextEditor extends JFrame {
 
         JMenuBar menuBar;
         JMenu menu;
+        Toolkit tk = this.getToolkit();
 
         // Hayden will add the Tool Bar
 
@@ -44,8 +47,12 @@ public class TextEditor extends JFrame {
         menuBar.add(menu);
 
 
+
+
         //  Chris
-        NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem();
+        URL iconUrl = this.getClass().getResource("images/New24.gif");
+        Image someimgicon = tk.getImage(iconUrl);
+        NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem(new ImageIcon(someimgicon));
         menu.add(newProjectMenuItem);
 
         //  To be implemented
