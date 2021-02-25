@@ -10,6 +10,8 @@ public class TextEditor extends JFrame {
     JMenuBar menuBar;
     JTextArea textArea;
 
+    // Sandy testing commit.
+
     public TextEditor() {
 
         super("Sample Application");
