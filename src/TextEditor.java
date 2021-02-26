@@ -84,12 +84,14 @@ public class TextEditor extends JFrame {
          menu.add(cutMenuItem);
 
         //  Ryan
-        CopyMenuItem copyMenuItem = new CopyMenuItem(textArea);
+        iconUrl = this.getClass().getResource("images/Copy24.gif");
+        Image copyImage = tk.getImage(iconUrl);
+        CopyMenuItem copyMenuItem = new CopyMenuItem(textArea, new ImageIcon(copyImage));
         menu.add(copyMenuItem);
 
         //  Robin
-         PasteMenuItem pasteMenuItem = new PasteMenuItem(textArea);
-         menu.add(pasteMenuItem);
+        PasteMenuItem pasteMenuItem = new PasteMenuItem(textArea);
+        menu.add(pasteMenuItem);
 
         //  Andrew
         // DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
