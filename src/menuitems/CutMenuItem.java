@@ -13,8 +13,8 @@ public class CutMenuItem extends JMenuItem implements ActionListener {
 
   }
 
-  public CutMenuItem(JTextArea k) {
-    super("Cut", new ImageIcon("images/cut.png"));
+  public CutMenuItem(JTextArea k, ImageIcon cutImage) {
+    super("Cut", cutImage);
     setMnemonic(KeyEvent.VK_X);
     setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
     getAccessibleContext().setAccessibleDescription("Cut Text");

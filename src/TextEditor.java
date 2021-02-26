@@ -13,17 +13,7 @@ public class TextEditor extends JFrame {
 
     JFrame frame;
     JMenuBar menuBar;
-    JTextArea textArea;
-    JToolBar toolBar;
-    JButton newButton, openButton, saveButton, quitButton, cutButton, copyButton, pasteButton, deleteButton;
-    NewProjectMenuItem newProjectMenuItem;
-    OpenProjectMenuItem openProjectMenuItem;
-    //SaveProjectMenuItem saveProjectMenuItem;
-    //QuitMenuItem quitMenuItem;
-    CutMenuItem cutMenuItem;
-    CopyMenuItem copyMenuItem;
-    PasteMenuItem pasteMenuItem;
-    //DeleteMenuItem deleteMenuItem;
+    JTextArea textArea = new JTextArea();
 
     // Sandy testing commit.
 
@@ -32,39 +22,7 @@ public class TextEditor extends JFrame {
         super("Sample Application");
         setJMenuBar(createMenuBar());
 
-        textArea = new JTextArea();
-        toolBar = new JToolBar();
-
-        newButton = new JButton("New");
-        newButton.addActionListener(newProjectMenuItem);
-        toolBar.add(newButton);
-        openButton = new JButton("Open");
-        openButton.addActionListener(openProjectMenuItem);
-        toolBar.add(openButton);
-        saveButton = new JButton("Save");
-        //saveButton.addActionListener(saveProjectMenuItem);
-        toolBar.add(saveButton);
-        quitButton = new JButton("Quit");
-        //quitButton.addActionListener(quitMenuItem);
-        toolBar.add(quitButton);
-        cutButton = new JButton("Cut");
-        cutButton.addActionListener(cutMenuItem);
-        toolBar.add(cutButton);
-        copyButton = new JButton("Copy");
-        copyButton.addActionListener(copyMenuItem);
-        toolBar.add(copyButton);
-        pasteButton = new JButton("Paste");
-        pasteButton.addActionListener(pasteMenuItem);
-        toolBar.add(pasteButton);
-        deleteButton = new JButton("Delete");
-        //deleteButton.addActionListener(deleteMenuItem);
-        toolBar.add(deleteButton);
-
-        JPanel p = new JPanel();
-        p.setLayout(new BorderLayout());
-        p.add(toolBar, BorderLayout.NORTH);
-        p.add(textArea, BorderLayout.CENTER);
-        setContentPane(p);
+        setContentPane(textArea);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 1000);
@@ -92,13 +50,13 @@ public class TextEditor extends JFrame {
         //  Chris
         URL iconUrl = this.getClass().getResource("images/New24.gif");
         Image someimgicon = tk.getImage(iconUrl);
-        newProjectMenuItem = new NewProjectMenuItem(new ImageIcon(someimgicon));
+        NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem(new ImageIcon(someimgicon), textArea, frame);
         menu.add(newProjectMenuItem);
 
         // Brian
         iconUrl = this.getClass().getResource("images/Open24.gif");
         Image openImage = tk.getImage(iconUrl);
-        openProjectMenuItem = new OpenProjectMenuItem(textArea, frame,  new ImageIcon(openImage));
+        OpenProjectMenuItem openProjectMenuItem = new OpenProjectMenuItem(textArea, frame,  new ImageIcon(openImage));
         menu.add(openProjectMenuItem);
 
         //  To be implemented
@@ -124,19 +82,21 @@ public class TextEditor extends JFrame {
 
 
         //  Sandy
-         cutMenuItem = new CutMenuItem(textArea);
-         menu.add(cutMenuItem);
+        iconUrl = this.getClass().getResource("images/Cut24.gif");
+        Image cutImage = tk.getImage(iconUrl);
+        CutMenuItem cutMenuItem = new CutMenuItem(textArea, new ImageIcon(cutImage));
+        menu.add(cutMenuItem);
 
         //  Ryan
         iconUrl = this.getClass().getResource("images/Copy24.gif");
         Image copyImage = tk.getImage(iconUrl);
-        copyMenuItem = new CopyMenuItem(textArea, new ImageIcon(copyImage));
+        CopyMenuItem copyMenuItem = new CopyMenuItem(textArea, new ImageIcon(copyImage));
         menu.add(copyMenuItem);
 
         //  Robin
         iconUrl = this.getClass().getResource("images/Paste24.gif");
         Image pasteImage = tk.getImage(iconUrl);
-        pasteMenuItem = new PasteMenuItem(textArea, new ImageIcon(pasteImage));
+        PasteMenuItem pasteMenuItem = new PasteMenuItem(textArea, new ImageIcon(pasteImage));
         menu.add(pasteMenuItem);
 
         //  Andrew
