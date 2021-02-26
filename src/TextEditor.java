@@ -22,7 +22,6 @@ public class TextEditor extends JFrame {
         super("Sample Application");
         setJMenuBar(createMenuBar());
 
-      
         setContentPane(textArea);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,7 +87,7 @@ public class TextEditor extends JFrame {
          menu.add(cutMenuItem);
 
         //  Ryan
-        CopyMenuItem copyMenuItem = new CopyMenuItem();
+        CopyMenuItem copyMenuItem = new CopyMenuItem(textArea);
         menu.add(copyMenuItem);
 
         //  Robin
