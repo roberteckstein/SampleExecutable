@@ -3,13 +3,17 @@
 
 import menuitems.*;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 
 public class TextEditor extends JFrame {
 
+    //   This is a comment
+
     JFrame frame;
     JMenuBar menuBar;
-    JTextArea textArea;
+    JTextArea textArea = new JTextArea();
 
     // Sandy testing commit.
 
@@ -18,7 +22,7 @@ public class TextEditor extends JFrame {
         super("Sample Application");
         setJMenuBar(createMenuBar());
 
-        textArea = new JTextArea();
+      
         setContentPane(textArea);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,6 +34,7 @@ public class TextEditor extends JFrame {
 
         JMenuBar menuBar;
         JMenu menu;
+        Toolkit tk = this.getToolkit();
 
         // Hayden will add the Tool Bar
 
@@ -43,8 +48,12 @@ public class TextEditor extends JFrame {
         menuBar.add(menu);
 
 
+
+
         //  Chris
-        NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem();
+        URL iconUrl = this.getClass().getResource("images/New24.gif");
+        Image someimgicon = tk.getImage(iconUrl);
+        NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem(new ImageIcon(someimgicon));
         menu.add(newProjectMenuItem);
 
         //  To be implemented
@@ -75,16 +84,16 @@ public class TextEditor extends JFrame {
 
 
         //  Sandy
-        // CutMenuItem cutMenuItem = new CutMenuItem();
-        // menu.add(cutMenuItem);
+         CutMenuItem cutMenuItem = new CutMenuItem(textArea);
+         menu.add(cutMenuItem);
 
         //  Ryan
         CopyMenuItem copyMenuItem = new CopyMenuItem();
         menu.add(copyMenuItem);
 
         //  Robin
-        // PasteMenuItem pasteMenuItem = new PasteMenuItem();
-        // menu.add(pasteMenuItem);
+         PasteMenuItem pasteMenuItem = new PasteMenuItem(textArea);
+         menu.add(pasteMenuItem);
 
         //  Andrew
         // DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
