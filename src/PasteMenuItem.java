@@ -21,7 +21,7 @@ public class PasteMenuItem extends JMenuItem implements ActionListener {
 
   //Pastes text on to text area
   public void actionPerformed(ActionEvent e) {
-    t.paste()
+    t.paste();
 
     System.out.println("New Action is performed");
   }
