@@ -12,9 +12,9 @@ public class PasteMenuItem extends JMenuItem implements ActionListener { //}, Cl
   JTextArea t;
 
   //Constructor
-  public PasteMenuItem(JTextArea textArea) {
+  public PasteMenuItem(JTextArea textArea, ImageIcon pasteImage) {
 
-    super("Paste", new ImageIcon("images/newproject.png"));
+    super("Paste", pasteImage);
 
     t = textArea;
 
@@ -36,25 +36,21 @@ public class PasteMenuItem extends JMenuItem implements ActionListener { //}, Cl
       Transferable t2 = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
 
       if (t2 != null && t2.isDataFlavorSupported(DataFlavor.stringFlavor)) {
-
         String text = (String)t2.getTransferData(DataFlavor.stringFlavor);
+        
         if (text.isEmpty()) {
-          //  Need to notify the user that the text is empty with a dialog
+          JOptionPane.showMessageDialog(null, "Nothing on Clipboard", "Alert" JOptionPane.INFORMATION_MESSAGE);
           System.out.println("The clipboard does not have any text on it");
         } else {
           t.paste();
         }
-
       } else {
         //  The clipboard contains a datatype other than text or is null. Ignore it.
       }
-
     } catch (Exception ex) {
       ex.printStackTrace();
     }
-
   }
-
   public void lostOwnership(Clipboard clipboard, Transferable contents) {
     //  Do nothing
   }
