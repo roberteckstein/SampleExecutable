@@ -30,9 +30,9 @@ public class TextEditor extends JFrame {
     public TextEditor() {
 
         super("Sample Application");
+        textArea = new JTextArea();
         setJMenuBar(createMenuBar());
 
-        textArea = new JTextArea();
         toolBar = new JToolBar();
 
         newButton = new JButton("New");
