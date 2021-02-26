@@ -90,7 +90,7 @@ public class TextEditor extends JFrame {
         menu.add(copyMenuItem);
 
         //  Robin
-        iconUrl = this.getClass().getResource("images/Copy24.gif");
+        iconUrl = this.getClass().getResource("images/Paste24.gif");
         Image pasteImage = tk.getImage(iconUrl);
         PasteMenuItem pasteMenuItem = new PasteMenuItem(textArea, new ImageIcon(pasteImage));
         menu.add(pasteMenuItem);
