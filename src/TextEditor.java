@@ -92,8 +92,8 @@ public class TextEditor extends JFrame {
         menu.add(copyMenuItem);
 
         //  Robin
-        // PasteMenuItem pasteMenuItem = new PasteMenuItem();
-        // menu.add(pasteMenuItem);
+         PasteMenuItem pasteMenuItem = new PasteMenuItem(textArea);
+         menu.add(pasteMenuItem);
 
         //  Andrew
         // DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
