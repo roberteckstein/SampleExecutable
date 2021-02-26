@@ -39,7 +39,7 @@ public class PasteMenuItem extends JMenuItem implements ActionListener { //}, Cl
         String text = (String)t2.getTransferData(DataFlavor.stringFlavor);
         
         if (text.isEmpty()) {
-          JOptionPane.showMessageDialog(null, "Nothing on Clipboard", "Alert" JOptionPane.INFORMATION_MESSAGE);
+          JOptionPane.showMessageDialog(null, "Nothing on Clipboard", "Alert" ,JOptionPane.INFORMATION_MESSAGE);
           System.out.println("The clipboard does not have any text on it");
         } else {
           t.paste();
