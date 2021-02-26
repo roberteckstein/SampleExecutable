@@ -18,9 +18,9 @@ public class OpenProjectMenuItem extends JMenuItem implements ActionListener {
     JTextArea t;
     JFrame f;
 
-    public OpenProjectMenuItem(JTextArea t, JFrame f) {
+    public OpenProjectMenuItem(JTextArea t, JFrame f, ImageIcon openImage) {
 
-        super("Open", new ImageIcon("images/Open24.png"));
+        super("Open", openImage);
         setMnemonic(KeyEvent.VK_P);
         setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, InputEvent.ALT_MASK));
         getAccessibleContext().setAccessibleDescription(

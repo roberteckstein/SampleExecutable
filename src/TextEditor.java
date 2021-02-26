@@ -54,7 +54,9 @@ public class TextEditor extends JFrame {
         menu.add(newProjectMenuItem);
 
         // Brian
-        OpenProjectMenuItem openProjectMenuItem = new OpenProjectMenuItem(textArea, frame);
+        iconUrl = this.getClass().getResource("images/Open24.gif");
+        Image openImage = tk.getImage(iconUrl);
+        OpenProjectMenuItem openProjectMenuItem = new OpenProjectMenuItem(textArea, frame,  new ImageIcon(openImage));
         menu.add(openProjectMenuItem);
 
         //  To be implemented
