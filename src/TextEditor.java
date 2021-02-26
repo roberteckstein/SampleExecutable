@@ -31,13 +31,15 @@ public class TextEditor extends JFrame {
 
         super("Sample Application");
         textArea = new JTextArea();
-        setJMenuBar(createMenuBar());
-
         toolBar = new JToolBar();
 
-        newButton = new JButton("New");
-        newButton.addActionListener(newProjectMenuItem);
-        toolBar.add(newButton);
+        setJMenuBar(createMenuBar());
+
+
+        //  Moved to getJMenuBar below to show how to use an icon instead of text
+   //    newButton = new JButton("New");
+   //    newButton.addActionListener(newProjectMenuItem);
+   //    toolBar.add(newButton);
         openButton = new JButton("Open");
         openButton.addActionListener(openProjectMenuItem);
         toolBar.add(openButton);
@@ -91,9 +93,14 @@ public class TextEditor extends JFrame {
 
         //  Chris
         URL iconUrl = this.getClass().getResource("images/New24.gif");
-        Image someimgicon = tk.getImage(iconUrl);
-        newProjectMenuItem = new NewProjectMenuItem(new ImageIcon(someimgicon), textArea, frame);
+        ImageIcon newImageIcon = new ImageIcon(tk.getImage(iconUrl));
+        newProjectMenuItem = new NewProjectMenuItem(newImageIcon, textArea, frame);
         menu.add(newProjectMenuItem);
+        newButton = new JButton(newImageIcon);
+        newButton.addActionListener(newProjectMenuItem);
+        newButton.setToolTipText("Create a new document");
+        toolBar.add(newButton);
+
 
         // Brian
         iconUrl = this.getClass().getResource("images/Open24.gif");
