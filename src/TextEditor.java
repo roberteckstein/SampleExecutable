@@ -47,21 +47,19 @@ public class TextEditor extends JFrame {
         menuBar.add(menu);
 
 
-
-
         //  Chris
         URL iconUrl = this.getClass().getResource("images/New24.gif");
         Image someimgicon = tk.getImage(iconUrl);
         NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem(new ImageIcon(someimgicon));
         menu.add(newProjectMenuItem);
 
+        // Brian
+        OpenProjectMenuItem openProjectMenuItem = new OpenProjectMenuItem(textArea, frame);
+        menu.add(openProjectMenuItem);
+
         //  To be implemented
 
         /*
-
-        // Brian
-        OpenProjectMenuItem openProjectMenuItem = new OpenProjectMenuItem();
-        menu.add(openProjectMenuItem);
 
         // Joshua H
         SaveProjectMenuItem saveProjectMenuItem = new SaveProjectMenuItem();
@@ -79,7 +77,6 @@ public class TextEditor extends JFrame {
         menu.getAccessibleContext().setAccessibleDescription(
                 "Edit Menu");
         menuBar.add(menu);
-
 
 
         //  Sandy
