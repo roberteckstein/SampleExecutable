@@ -3,6 +3,8 @@
 
 import menuitems.*;
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.StrokeBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
@@ -29,7 +31,7 @@ public class TextEditor extends JFrame {
 
     public TextEditor() {
 
-        super("Sample Application");
+        super("Text Editor");
         textArea = new JTextArea();
         toolBar = new JToolBar();
 
@@ -65,7 +67,11 @@ public class TextEditor extends JFrame {
         JPanel p = new JPanel();
         p.setLayout(new BorderLayout());
         p.add(toolBar, BorderLayout.NORTH);
-        p.add(textArea, BorderLayout.CENTER);
+        JPanel textAreaPane = new JPanel();
+        textAreaPane.setBorder(new StrokeBorder(new BasicStroke((float)3.0), Color.lightGray));
+        textAreaPane.setLayout(new BorderLayout());
+        textAreaPane.add(textArea, BorderLayout.CENTER);
+        p.add(textAreaPane, BorderLayout.CENTER);
         setContentPane(p);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
