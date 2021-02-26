@@ -82,8 +82,10 @@ public class TextEditor extends JFrame {
 
 
         //  Sandy
-         CutMenuItem cutMenuItem = new CutMenuItem(textArea);
-         menu.add(cutMenuItem);
+        iconUrl = this.getClass().getResource("images/Cut24.gif");
+        Image cutImage = tk.getImage(iconUrl);
+        CutMenuItem cutMenuItem = new CutMenuItem(textArea, new ImageIcon(cutImage));
+        menu.add(cutMenuItem);
 
         //  Ryan
         iconUrl = this.getClass().getResource("images/Copy24.gif");
