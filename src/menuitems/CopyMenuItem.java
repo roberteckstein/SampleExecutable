@@ -29,7 +29,7 @@ public class CopyMenuItem extends JMenuItem implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (textArea.getSelectedText().equals("")){
+        if (textArea.getSelectedText() == null){
             JOptionPane.showMessageDialog(null, "No Text Selected To Copy", "Alert", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("Nothing copied");
         }else{
