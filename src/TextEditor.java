@@ -50,7 +50,7 @@ public class TextEditor extends JFrame {
         //  Chris
         URL iconUrl = this.getClass().getResource("images/New24.gif");
         Image someimgicon = tk.getImage(iconUrl);
-        NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem(new ImageIcon(someimgicon));
+        NewProjectMenuItem newProjectMenuItem = new NewProjectMenuItem(new ImageIcon(someimgicon), textArea, frame);
         menu.add(newProjectMenuItem);
 
         // Brian
