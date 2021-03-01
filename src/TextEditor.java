@@ -55,9 +55,26 @@ public class TextEditor extends JFrame {
         p.add(textAreaPane, BorderLayout.CENTER);
         setContentPane(p);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 1000);
+        
+ /**
+ * Kasen BjuganGreen
+ * 2/26/2021
+ * Confirmation on close with top right "X".
+ */
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                JFrame frame = (JFrame)we.getSource();
+                int result = JOptionPane.showConfirmDialog(frame,"Are you sure you want to exit?", "Quit Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
+                if(result == JOptionPane.YES_OPTION){
+                    System.exit(0);
+                }else {
+                    return;
+                }
+            }
+        });
     }
 
     public JMenuBar createMenuBar() {
@@ -106,14 +123,15 @@ public class TextEditor extends JFrame {
         // Joshua H
         SaveProjectMenuItem saveProjectMenuItem = new SaveProjectMenuItem();
         menu.add(saveProjectMenuItem);
-
+        
+        */
         menu.addSeparator();
 
 
         //  Kasen BG
         QuitMenuItem quitMenuItem = new QuitMenuItem();
         menu.add(quitMenuItem);
-        */
+        
 
         menu = new JMenu("Edit");
         menu.setMnemonic(KeyEvent.VK_E);
