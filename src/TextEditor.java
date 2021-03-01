@@ -38,28 +38,9 @@ public class TextEditor extends JFrame {
         setJMenuBar(createMenuBar());
 
 
-        //  Moved to getJMenuBar below to show how to use an icon instead of text
-   //    newButton = new JButton("New");
-   //    newButton.addActionListener(newProjectMenuItem);
-   //    toolBar.add(newButton);
-        openButton = new JButton("Open");
-        openButton.addActionListener(openProjectMenuItem);
-        toolBar.add(openButton);
         saveButton = new JButton("Save");
         //saveButton.addActionListener(saveProjectMenuItem);
         toolBar.add(saveButton);
-        quitButton = new JButton("Quit");
-        //quitButton.addActionListener(quitMenuItem);
-        toolBar.add(quitButton);
-        cutButton = new JButton("Cut");
-        cutButton.addActionListener(cutMenuItem);
-        toolBar.add(cutButton);
-        copyButton = new JButton("Copy");
-        copyButton.addActionListener(copyMenuItem);
-        toolBar.add(copyButton);
-        pasteButton = new JButton("Paste");
-        pasteButton.addActionListener(pasteMenuItem);
-        toolBar.add(pasteButton);
         deleteButton = new JButton("Delete");
         //deleteButton.addActionListener(deleteMenuItem);
         toolBar.add(deleteButton);
@@ -110,9 +91,13 @@ public class TextEditor extends JFrame {
 
         // Brian
         iconUrl = this.getClass().getResource("images/Open24.gif");
-        Image openImage = tk.getImage(iconUrl);
-        openProjectMenuItem = new OpenProjectMenuItem(textArea, frame,  new ImageIcon(openImage));
+        ImageIcon openImage = new ImageIcon(tk.getImage(iconUrl));
+        openProjectMenuItem = new OpenProjectMenuItem(textArea, frame, openImage);
         menu.add(openProjectMenuItem);
+        openButton = new JButton(openImage);
+        openButton.addActionListener(openProjectMenuItem);
+        openButton.setToolTipText("Open document");
+        toolBar.add(openButton);
 
         //  To be implemented
 
@@ -123,6 +108,7 @@ public class TextEditor extends JFrame {
         menu.add(saveProjectMenuItem);
 
         menu.addSeparator();
+
 
         //  Kasen BG
         QuitMenuItem quitMenuItem = new QuitMenuItem();
@@ -138,21 +124,33 @@ public class TextEditor extends JFrame {
 
         //  Sandy
         iconUrl = this.getClass().getResource("images/Cut24.gif");
-        Image cutImage = tk.getImage(iconUrl);
-        cutMenuItem = new CutMenuItem(textArea, new ImageIcon(cutImage));
+        ImageIcon cutImage = new ImageIcon(tk.getImage(iconUrl));
+        cutMenuItem = new CutMenuItem(textArea, cutImage);
         menu.add(cutMenuItem);
+        cutButton = new JButton(cutImage);
+        cutButton.addActionListener(cutMenuItem);
+        cutButton.setToolTipText("Cut selected text");
+        toolBar.add(cutButton);
 
         //  Ryan
         iconUrl = this.getClass().getResource("images/Copy24.gif");
-        Image copyImage = tk.getImage(iconUrl);
-        copyMenuItem = new CopyMenuItem(textArea, new ImageIcon(copyImage));
+        ImageIcon copyImage = new ImageIcon(tk.getImage(iconUrl));
+        copyMenuItem = new CopyMenuItem(textArea, copyImage);
         menu.add(copyMenuItem);
+        copyButton = new JButton(copyImage);
+        copyButton.addActionListener(copyMenuItem);
+        copyButton.setToolTipText("Copy selected text");
+        toolBar.add(copyButton);
 
         //  Robin
         iconUrl = this.getClass().getResource("images/Paste24.gif");
-        Image pasteImage = tk.getImage(iconUrl);
-        pasteMenuItem = new PasteMenuItem(textArea, new ImageIcon(pasteImage));
+        ImageIcon pasteImage = new ImageIcon(tk.getImage(iconUrl));
+        pasteMenuItem = new PasteMenuItem(textArea, pasteImage);
         menu.add(pasteMenuItem);
+        pasteButton = new JButton(pasteImage);
+        pasteButton.addActionListener(pasteMenuItem);
+        pasteButton.setToolTipText("Paste text from top of clipboard");
+        toolBar.add(pasteButton);
 
         //  Andrew
         // DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
