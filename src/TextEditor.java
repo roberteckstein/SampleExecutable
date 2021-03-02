@@ -20,7 +20,7 @@ public class TextEditor extends JFrame {
     JButton newButton, openButton, saveButton, quitButton, cutButton, copyButton, pasteButton, deleteButton;
     NewProjectMenuItem newProjectMenuItem;
     OpenProjectMenuItem openProjectMenuItem;
-    //SaveProjectMenuItem saveProjectMenuItem;
+    SaveProjectMenuItem saveProjectMenuItem;
     //QuitMenuItem quitMenuItem;
     CutMenuItem cutMenuItem;
     CopyMenuItem copyMenuItem;
@@ -116,15 +116,18 @@ public class TextEditor extends JFrame {
         openButton.setToolTipText("Open document");
         toolBar.add(openButton);
 
-        //  To be implemented
-
-        /*
 
         // Joshua H
-        SaveProjectMenuItem saveProjectMenuItem = new SaveProjectMenuItem();
+        iconUrl = this.getClass().getResource("images/Save24.gif");
+        ImageIcon saveImage = new ImageIcon(tk.getImage(iconUrl));
+        saveProjectMenuItem = new SaveProjectMenuItem(textArea, frame, saveImage);
         menu.add(saveProjectMenuItem);
-        
-        */
+        saveButton = new JButton(saveImage);
+        saveButton.addActionListener(saveProjectMenuItem);
+        saveButton.setToolTipText("Save document");
+        toolBar.add(saveButton);
+
+
         menu.addSeparator();
 
 
