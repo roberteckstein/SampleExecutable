@@ -4,7 +4,7 @@
   * DeleteMenuItem
   */
 
- package menuItems;
+ package menuitems;
 
  import javax.swing.*;
  import java.awt.event.ActionEvent;
@@ -13,8 +13,8 @@
  public class DeleteMenuItem extends JMenuItem implements ActionListener {
      private JTextArea t;
 
-     public DeleteMenuItem(JTextArea textArea) {
-         super("Delete", new ImageIcon("images/delete.png"));
+     public DeleteMenuItem(JTextArea textArea, ImageIcon deleteImage) {
+         super("Delete", deleteImage);
          setMnemonic(KeyEvent.VK_P);
          setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
          getAccessibleContext().setAccessibleDescription("Delete");
