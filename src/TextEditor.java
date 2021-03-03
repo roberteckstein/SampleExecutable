@@ -25,7 +25,7 @@ public class TextEditor extends JFrame {
     CutMenuItem cutMenuItem;
     CopyMenuItem copyMenuItem;
     PasteMenuItem pasteMenuItem;
-    //DeleteMenuItem deleteMenuItem;
+    DeleteMenuItem deleteMenuItem;
 
     // Sandy testing commit.
 
@@ -41,9 +41,6 @@ public class TextEditor extends JFrame {
         saveButton = new JButton("Save");
         //saveButton.addActionListener(saveProjectMenuItem);
         toolBar.add(saveButton);
-        deleteButton = new JButton("Delete");
-        //deleteButton.addActionListener(deleteMenuItem);
-        toolBar.add(deleteButton);
 
         JPanel p = new JPanel();
         p.setLayout(new BorderLayout());
@@ -174,8 +171,15 @@ public class TextEditor extends JFrame {
         toolBar.add(pasteButton);
 
         //  Andrew
-        // DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
-        // menu.add(deleteMenuItem);
+        iconUrl = this.getClass().getResource("images/Delete24.gif");
+        ImageIcon deleteImage = new ImageIcon(tk.getImage(iconUrl));
+        deleteMenuItem = new DeleteMenuItem(textArea, deleteImage);
+        menu.add(deleteMenuItem);
+        deleteButton = new JButton(deleteImage);
+        deleteButton.addActionListener(deleteMenuItem);
+        deleteButton.setToolTipText("Delete selected text");
+        toolBar.add(deleteButton);
+
 
         return menuBar;
 
