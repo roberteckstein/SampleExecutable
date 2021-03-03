@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.Toolkit;
 
 //paste class: takes contents of the Clipboard and replicates them onto the text area, by Robin
-public class PasteMenuItem extends JMenuItem implements ActionListener { //}, ClipboardOwner {
+public class PasteMenuItem extends JMenuItem implements ActionListener, ClipboardOwner {
   JTextArea t;
 
   //Constructor
@@ -32,21 +32,15 @@ public class PasteMenuItem extends JMenuItem implements ActionListener { //}, Cl
     try {
 
       //  Uncomment the following line to test clearing the clipboard manually, then have this class implement ClipboardOwner
-      //  Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(""), this);
+      //Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(""), this);
 
       Transferable t2 = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
 
       if (t2 != null && t2.isDataFlavorSupported(DataFlavor.stringFlavor)) {
-        String text = (String)t2.getTransferData(DataFlavor.stringFlavor);
-        
-        if (text.isEmpty()) {
-          JOptionPane.showMessageDialog(null, "Nothing on Clipboard", "Alert" ,JOptionPane.INFORMATION_MESSAGE);
-          System.out.println("The clipboard does not have any text on it");
-        } else {
-          t.paste();
-        }
+        t.paste();
       } else {
-        //  The clipboard contains a datatype other than text or is null. Ignore it.
+        JOptionPane.showMessageDialog(null, "Nothing on Clipboard", "Alert" ,JOptionPane.INFORMATION_MESSAGE);
+        System.out.println("The clipboard does not have any text on it");
       }
     } catch (Exception ex) {
       ex.printStackTrace();
