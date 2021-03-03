@@ -17,11 +17,10 @@ public class TextEditor extends JFrame {
     JMenuBar menuBar;
     JTextArea textArea;
     JToolBar toolBar;
-    JButton newButton, openButton, saveButton, quitButton, cutButton, copyButton, pasteButton, deleteButton;
+    JButton newButton, openButton, saveButton, cutButton, copyButton, pasteButton, deleteButton;
     NewProjectMenuItem newProjectMenuItem;
     OpenProjectMenuItem openProjectMenuItem;
     SaveProjectMenuItem saveProjectMenuItem;
-    //QuitMenuItem quitMenuItem;
     CutMenuItem cutMenuItem;
     CopyMenuItem copyMenuItem;
     PasteMenuItem pasteMenuItem;
@@ -36,11 +35,6 @@ public class TextEditor extends JFrame {
         toolBar = new JToolBar();
 
         setJMenuBar(createMenuBar());
-
-
-        saveButton = new JButton("Save");
-        //saveButton.addActionListener(saveProjectMenuItem);
-        toolBar.add(saveButton);
 
         JPanel p = new JPanel();
         p.setLayout(new BorderLayout());
